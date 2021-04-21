@@ -1,15 +1,20 @@
 import format from 'date-fns/format'
 import ptBR from 'date-fns/locale/pt-BR'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import styles from './styles.module.scss'
 
 export function Header() {
+    const router = useRouter()
     const currentDate = format(new Date(), 'EEEEEE, d MMMM', {
         locale: ptBR
     })
 
     return (
         <header className={styles.headerContainer}>
-          <img src="/logo.svg" alt="Podcastr" /> 
+          <Link href="/">
+              <img src="/logo.svg" alt="Podcastr" />
+          </Link> 
           <p>O melhor para você ouvir, sempre</p>
           <span>{currentDate}</span> 
         </header>
