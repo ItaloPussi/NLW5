@@ -22,7 +22,7 @@ export function Confirmation(){
                 </Text>
 
                 <View style={styles.footer}>
-                    <Button title="Começar" to="Welcome" />
+                    <Button title="Começar" to="PlantSelect" />
                 </View>
             </View>
         </SafeAreaView>
