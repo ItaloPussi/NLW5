@@ -3,6 +3,8 @@ import { ptBR } from 'date-fns/locale'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useContext } from 'react'
+import { PlayerContext } from '../../context/PlayerContext'
 import { api } from '../../services/api'
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString'
 
@@ -24,6 +26,8 @@ interface EpisodeProps {
     episode: Episode
 }
 export default function Episode({episode}: EpisodeProps){
+    const {play, togglePlay, isPlaying, episodeList, currentEpisodeIndex} = useContext(PlayerContext)
+
     return (
         <div className={styles.episode}>
             <div className={styles.thumbnailContainer}>
@@ -40,8 +44,24 @@ export default function Episode({episode}: EpisodeProps){
                     objectFit="cover" 
                 />
 
-                <button type="button">
-                    <img src="/play.svg" alt="Tocar episódio" />
+                <button type="button" onClick={() => {
+                    if(episodeList[currentEpisodeIndex]?.id == episode.id){
+                        togglePlay()
+                    } else {
+                        play(episode)
+                    }
+                }}>
+                    {
+                        episodeList[currentEpisodeIndex]?.id == episode.id ? (
+                            isPlaying ? (
+                                <img src="/pause.svg" alt="Pausar episódio" />
+                            ) : (
+                                <img src="/play.svg" alt="Tocar episódio" />
+                            )
+                        ) : (
+                            <img src="/play.svg" alt="Tocar episódio" />
+                        )
+                    }
                 </button>
             </div>
 
