@@ -15,6 +15,15 @@ export function UserIdentification(){
     function handleInputFocus(){
         setIsFocused(true)
     }
+
+    const confirmationScreenParams = {
+        title: "Prontinho",
+        subtitle: "Agora vamos começar a cuidar das suas plantinhas com muito cuidado.",
+        icon: "smile",
+        buttonTitle: "Começar",
+        nextScreen: "PlantSelect"
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <KeyboardAvoidingView 
@@ -49,7 +58,7 @@ export function UserIdentification(){
                             />
 
                             <View style={styles.footer}>
-                                <Button to="Confirmation" title="Confirmar" />
+                                <Button to="Confirmation" title="Confirmar" params={{...confirmationScreenParams, name}} disabled={!(name.length >= 3)} />
                             </View>
                         </View>
                     </View>

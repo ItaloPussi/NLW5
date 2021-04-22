@@ -6,21 +6,25 @@ import fonts from '../styles/fonts'
 
 interface ButtonProps extends TouchableOpacityProps {
     title: string;   
-    to: string; 
+    to: string;
+    disabled?: boolean;
+    params?: {};
+    pressHandler?: false | (() => void);
 }
 
-export function Button({title, to, ...rest} : ButtonProps){
+export function Button({title, to, disabled = false, params={}, pressHandler = false, ...rest} : ButtonProps){
     
     const navigation = useNavigation()
 
     function handleNavigation(){
-        navigation.navigate(to)
+        navigation.navigate(to, params)
     }
     return (
         <TouchableOpacity 
-            style={styles.button}
+            style={[styles.button, disabled && styles.disabled]}
             activeOpacity={0.7}
-            onPress={handleNavigation}
+            onPress={pressHandler ? pressHandler : handleNavigation}
+            disabled={disabled}
             {...rest}
         >
             <Text style={styles.buttonText}>
@@ -43,4 +47,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontFamily: fonts.heading
     },
+    disabled: {
+        backgroundColor: colors.gray
+    }
 })

@@ -1,28 +1,62 @@
-import React from 'react'
-import { SafeAreaView, StyleSheet, Text, View} from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { Alert, SafeAreaView, StyleSheet, Text, View} from 'react-native'
 import { Button } from '../components/Button'
 import colors from '../styles/colors'
 import fonts from '../styles/fonts'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useRoute } from '@react-navigation/core'
 
+interface Params{
+    name?: string,
+    title: string,
+    subtitle: string,
+    buttonTitle: string,
+    icon: 'smile' | 'hug',
+    nextScreen: string
+}
+
+const emojis = {
+    hug: '🤗',
+    smile: '😄'
+}
 
 export function Confirmation(){
+    const route = useRoute()
+    const {name, title, subtitle, buttonTitle, icon, nextScreen} = route.params as Params
+    const [isSaved, setIsSaved] = useState(false)
+
+    useEffect(()=>{
+        if(!name) return
+        async function saveName(){
+            setIsSaved(false)
+            try {
+                await AsyncStorage.setItem('@plantmanager:user', name || '')
+            } catch{
+                Alert.alert("Erro! Tente novamente em alguns instantes")
+            }
+            setIsSaved(true)
+        }
+
+        saveName()
+    }, [name])
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
                 <Text style={styles.emoji}>
-                    😄
+                    {emojis[icon]}
                 </Text>
 
                 <Text style={styles.title}>
-                    Prontinho
+                    {title}
                 </Text>
 
                 <Text style={styles.subtitle}>
-                    Agora vamos começar a cuidar das suas plantinhas com muito cuidado.
+                    {subtitle}
                 </Text>
 
                 <View style={styles.footer}>
-                    <Button title="Começar" to="PlantSelect" />
+                    <Button title={buttonTitle} to={nextScreen} disabled={!(name || isSaved)} />
                 </View>
             </View>
         </SafeAreaView>
