@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export const api = axios.create({
-    baseURL: 'http://localhost:3333'
+    baseURL: process.env.FAKE_DB || 'http://localhost:3333'
 })
