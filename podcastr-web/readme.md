@@ -5,7 +5,7 @@
 
 <h1 align="center">
   <a href="https://github.com/ItaloPussi/NLW5/tree/master/podcastr-web" target="_blank">
-    <img width="100%" alt="Podcastr Home Page" title="Podcastr Home Page" src=".github/podcastr-home.png" />
+    <img width="100%" alt="Podcastr Home Page" title="Podcastr Home Page" src="../.github/podcastr-home.png" />
   </a>
 </h1>
 
@@ -21,13 +21,13 @@
 
 <h2 id="project">Project</h2>
 <div>
-  <img alt="Podcastr active" title="Podcastr active" width="49%" src="./.github/podcastr-active.png" />
-  <img alt="Podcastr Post example" title="Podcastr Post example" width="49%" src="./.github/podcastr-post.png" />
+  <img alt="Podcastr active" title="Podcastr active" width="49%" src="../.github/podcastr-active.png" />
+  <img alt="Podcastr Post example" title="Podcastr Post example" width="49%" src="../.github/podcastr-post.png" />
  </div>
  </div>
 <br />
 
-<p>If you want see the application in production, access this link: <a href="https://italopussi-podcastr.vercel.app/" target="_blank">https://italopussi-podcastr.vercel.app/</a>
+<p>If you want see the application in production, access this link: <a href="https://italopussi-podcastr.vercel.app/" target="_blank">https://italopussi-podcastr.vercel.app/</a></p>
 <p> To test the application on your machine it is necessary to have <a href="https://nodejs.org/en/download/ target="_blank">NodeJs</a> installed.</p>
 <p> Now, follow these steps on the terminal:</p>
 

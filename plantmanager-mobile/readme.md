@@ -5,7 +5,7 @@
 
 <h1 align="center">
   <a href="https://github.com/ItaloPussi/NLW5/tree/master/plantmanager-mobile" target="_blank">
-    <img width="250px" alt="Plant Manager Main Screen" title="Plant Manager Main Screen" src=".github/plantmanager-main.jpeg" />
+    <img width="250px" alt="Plant Manager Main Screen" title="Plant Manager Main Screen" src="../.github/plantmanager-main.jpeg" />
   </a>
 </h1>
 
@@ -21,9 +21,9 @@
 
 <h2 id="project">Project</h2>
 <div>
-  <img alt="Plant Manager home" title="Plant Manager home" width="250px" src="./.github/plantmanager-home.jpeg" />
-  <img alt="Plant Manager next watered" title="Plant Manager next watered" width="250px" src="./.github/plantmanager-nextwatered.jpeg" />
-  <img alt="Plant Manager plant selection" title="Plant Manager plant selection" width="250px" src="./.github/plantmanager-plantselection.jpeg" />
+  <img alt="Plant Manager home" title="Plant Manager home" width="250px" src="../.github/plantmanager-home.jpeg" />
+  <img alt="Plant Manager next watered" title="Plant Manager next watered" width="250px" src="../.github/plantmanager-nextwatered.jpeg" />
+  <img alt="Plant Manager plant selection" title="Plant Manager plant selection" width="250px" src="../.github/plantmanager-plantselection.jpeg" />
 </div>
 <br />
 
